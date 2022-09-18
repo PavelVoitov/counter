@@ -1,0 +1,21 @@
+.button {
+    font-weight: bolder;
+    background-color: #63d8fa;
+    border-radius: 5px;
+    color: #0a0a0a;
+    width: 90px;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 5px;
+}
+
+.buttonDisable {
+    background-color: rgb(12, 0, 0, 0);
+}
+
+.divButton {
+    display: inline-block;
+
+}
