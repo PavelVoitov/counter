@@ -3,7 +3,7 @@ import c from './Count.module.css'
 
 type CountPropsType = {
     count: number
-    disableValue: number
+    disableValue?: number
 
 }
 

@@ -4,25 +4,14 @@
     border: none;
     border-radius: 5px;
     color: #0a0a0a;
-    width: 80px;
-    padding: 10px 60px;
+    /*width: 215px;*/
+    padding: 10px;
     text-align: center;
     text-decoration: none;
     font-size: 30px;
-    margin-top: 10px;
+    height: 50px;
 }
 
 .red {
-    /*font-size: larger;*/
-    /*font-weight: bolder;*/
-    /*background-color: #63d9fb;*/
-    /*border: none;*/
-    /*border-radius: 5px;*/
     color: #f60505;
-    /*width: 80px;*/
-    /*padding: 10px 20px;*/
-    /*text-align: center;*/
-    /*text-decoration: none;*/
-    /*font-size: 30px;*/
-    /*margin-top: 10px;*/
 }

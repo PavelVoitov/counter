@@ -1,0 +1,34 @@
+.InputForSet {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 10px;
+    font-weight: bolder;
+    /*background-color: #63d9fb;*/
+    border: none;
+    border-radius: 5px;
+    color: #63d8fa;
+    /*width: 215px;*/
+    margin-bottom: 5px;
+    text-align: center;
+    text-decoration: none;
+    /*height: 50px;*/
+    /*padding-bottom: 5px;*/
+    padding: 7px;
+}
+
+.Input {
+    text-align: center;
+    font-weight: bolder;
+    height: 20px;
+    display: block;
+    width: 100px;
+    margin-bottom: 3px;
+
+}
+
+.error {
+    color: #e14aad;
+    border: #f60505;
+}
+
+
