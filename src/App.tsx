@@ -8,12 +8,14 @@ import {LimitInput} from "./InputForSet/LimitInput";
 
 
 function App() {
+    const defaultStartValue = 5;
 
-    const [maxValue, setMaxValue] = useState<number>(0)
+    const [maxValue, setMaxValue] = useState<number>(defaultStartValue)
     let [startValue, setStartValue] = useState<number>(0)
     let [count, setCount] = useState<number>(0)
-    const [error, setError] = useState<string>('')
-    const disableValue = maxValue;
+    const [error, setError] = useState<boolean>(false)
+    const [errorMessage, setErrorMessage] = useState<string>('')
+
 
 
     useEffect(() => {
@@ -23,36 +25,44 @@ function App() {
             console.log(newValue)
             setCount(newValue)
         }
-    }, [])
+    }, [error])
 
 
     const onClickResetHandler = () => {
-        // let start = localStorage.getItem(('start value'),  JSON.parse((startValue)))
-       setCount(0)
-       //  startValue ? setCount(startValue) : 0
-        localStorage.clear();
+        let localStorageStartValue = localStorage.getItem('start value')
+        if (localStorageStartValue) {
+            let newValue = JSON.parse(localStorageStartValue)
+            setCount(newValue)
+        } else if (errorMessage !== '') {
+            setCount(0)
+            setErrorMessage('')
+        } else {
+            setCount(0)
+
+
+        }
     }
 
     useEffect(() => {
         localStorage.setItem('count value', JSON.stringify(count))
-    }, [count])
+    }, [])
 
 
 
     const onClickSetHandler = () => {
         setMaxValue(maxValue)
         setStartValue(startValue)
-        if (startValue) {
-            setCount(startValue)
-        }
+        setCount(startValue)
         localStorage.setItem(('max value'), JSON.stringify((maxValue)))
         localStorage.setItem(('start value'), JSON.stringify((startValue)))
     }
 
     const onClickResetSettingsHandler = () => {
-        setMaxValue(0)
+        setMaxValue(defaultStartValue)
         setStartValue(0)
         setCount(0)
+        setError(false)
+        setErrorMessage('')
         localStorage.clear();
     }
 
@@ -63,15 +73,6 @@ function App() {
 
     return (
         <div className="App">
-            <div className='counter'>
-                <div className='conterDiv'>
-                    <Count count={count} disableValue={disableValue}/>
-                </div>
-                <div className='buttons'>
-                    <Button name={'inc'} callback={onClickPlusHandler} count={count} disableValue={disableValue}/>
-                    <Button name={'reset'} callback={onClickResetHandler} count={0} disableValue={disableValue}/>
-                </div>
-            </div>
             <div className='settings'>
                 <div className={'conterDiv'}>
                     <div className='MaxAndStart'>
@@ -80,8 +81,17 @@ function App() {
                     </div>
                 </div>
                 <div className='buttons'>
-                    <Button name={'set'} disableValue={disableValue} callback={onClickSetHandler}/>
-                    <Button name={'reset'} callback={onClickResetSettingsHandler} count={0} disableValue={disableValue}/>
+                    <Button name={'set'} maxValue={maxValue} callback={onClickSetHandler} count={0} error={error}/>
+                    <Button name={'reset'} callback={onClickResetSettingsHandler} count={0} maxValue={maxValue} />
+                </div>
+            </div>
+            <div className='counter'>
+                <div className='conterDiv'>
+                    <Count count={count} disableValue={maxValue} startValue={startValue} errorMessage={errorMessage} setErrorMessage={setErrorMessage} error={error} setError={setError}/>
+                </div>
+                <div className='buttons'>
+                    <Button name={'inc'} callback={onClickPlusHandler} count={count} maxValue={maxValue} error={error}/>
+                    <Button name={'reset'} callback={onClickResetHandler} count={0} maxValue={maxValue}/>
                 </div>
             </div>
         </div>
