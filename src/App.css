@@ -5,14 +5,7 @@
 }
 
 .App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+    display: inline-block;
 }
 
 .App-link {
@@ -24,27 +17,39 @@
     /*left: 5%;*/
     border: 2px solid #63d8fa;
     border-radius: 5px;
-    margin: 10px 5px 5px 5px;
+    margin: 10px 3px 10px 3px;
     padding: 5px;
+    width: 230px;
+
+
+    /* position: absolute; */
+    /* left: 5%; */
+    /*border: 2px solid #63d8fa;*/
+    /*border-radius: 5px;*/
+    /*margin: 13px 88px 0px 2px;*/
+    /*width: 240px;*/
+    /*padding: 10px 10px 0 0;*/
 }
 
 .MaxAndStart {
-  border: 2px solid #63d8fa;
-  border-radius: 5px;
-  /*margin: 0px;*/
-  height: 50px;
-  padding-top: 0px;
-  padding-bottom: 20px;
+    border: 2px solid #63d8fa;
+    border-radius: 5px;
+    /*margin: 0px;*/
+    height: 50px;
+    padding-top: 0px;
+    padding-bottom: 20px;
 }
 
 .counter {
+
+    display: inline-block;
     border: 2px solid #63d8fa;
     border-radius: 5px;
     margin: 10px;
     padding: 2px;
-    position: absolute;
-    top: 10px;
-    left: 50%;
+    /*position: absolute;*/
+    /*top: 10px;*/
+    /*left: 50%;*/
     height: 150px;
     width: 250px;
 }
@@ -52,20 +57,20 @@
 .conterDiv {
     margin: 5px 0px 0px 5px;
     width: 240px;
-
 }
 
 .settings {
-  border: 2px solid #63d8fa;
-  border-radius: 5px;
-  margin: 10px;
-  padding: 0px 2px 5px 2px;
+    display: inline-block;
+    border: 2px solid #63d8fa;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 0px 2px 5px 2px;
 
-  position: absolute;
-  top: 10px;
-  left: 30%;
-  height: 150px;
-  width: 250px;
+    /*position: absolute;*/
+    /*top: 10px;*/
+    /*left: 30%;*/
+    height: 150px;
+    width: 250px;
 
 }
 

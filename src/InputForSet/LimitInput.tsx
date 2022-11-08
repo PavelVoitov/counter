@@ -1,25 +1,36 @@
 import React, {ChangeEvent} from "react";
 import s from './LimitInput.module.css'
-import {Simulate} from "react-dom/test-utils";
 
 
 type InputForSetProps = {
+    number: number
     labelName: string
-    number?: number
+    maxValue?: number
+    startValue?: number
     callback: (value: number) => void
-    error: boolean
-    setError: (error: boolean) => void
+    error?: boolean
+
 }
 
 
-export const LimitInput = (props: InputForSetProps) => {
-    const {labelName, callback, number, error, setError} = props
-
+export const LimitInput = React.memo((props: InputForSetProps) => {
+    const {labelName, callback, startValue, maxValue, number, error} = props
+    // let error
     const onChangeValue = (e: ChangeEvent<HTMLInputElement>) => {
         const value = Number(e.currentTarget.value)
         callback(value)
-        setError(false)
     }
+
+    // if (maxValue < 0 || startValue? < 0) {
+    //     error = true
+    // }
+    //
+    // if (startValue > maxValue) {
+    //     error = true
+    // }
+
+
+
 
 
     return (
@@ -34,4 +45,4 @@ export const LimitInput = (props: InputForSetProps) => {
         </div>
 
     )
-}
+})
