@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useCallback} from 'react';
 import './App.css';
 import {Button} from "./Buttons/Button";
 import {Count} from "./Counter/Count";
@@ -12,8 +12,7 @@ import {
     setUpCounterAC
 } from "./store/counterReducer";
 import {AppRootStateType} from "./store/store";
-import {Simulate} from "react-dom/test-utils";
-import error = Simulate.error;
+
 
 
 
@@ -94,7 +93,7 @@ function App() {
     }, [dispatch])
 
 
-    let error
+    let error = false
     let errorMessage = ''
     if (counter.startValue >= counter.maxValue) {
         error = true
@@ -113,6 +112,8 @@ function App() {
     if (counter.startValue === 0 && counter.maxValue === 0) {
         error = true
         errorMessage = 'Incorrect value!'}
+    console.log(error)
+    console.log(errorMessage)
 
 
     return (
@@ -128,7 +129,7 @@ function App() {
                     </div>
                     <div className='buttons'>
                         <Button name={'set'} callback={setUpCounter} count={0} error={error} />
-                        <Button name={'reset'} callback={resetSettingsCounter} count={0}  />
+                        <Button name={'reset'} callback={resetSettingsCounter} count={0} />
                     </div>
                 </div>
 
@@ -138,7 +139,7 @@ function App() {
                     </div>
                     <div className='buttons'>
                         <Button name={'inc'} callback={addOneInCounter} count={counter.count} error={error} errorMessage={errorMessage}/>
-                        <Button name={'reset'} callback={resetCounter} count={0} />
+                        <Button name={'reset'} callback={resetCounter} count={0} errorMessage={errorMessage}/>
                     </div>
                 </div>
             </div>

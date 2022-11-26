@@ -16,9 +16,9 @@ export const Button = React.memo((props: ButtonPropsType) => {
     return (
         <div className={c.divButton}>
             <button
-                disabled={error && errorMessage !== ''}
+                disabled={error === true }
                 onClick={callback}
-                className={error === true || errorMessage?.length === 1 ? `${c.button} ${c.buttonDisable}`
+                className={error === true && errorMessage !== '' ? `${c.button} ${c.buttonDisable}`
                     : c.button}
             >
                 {name}

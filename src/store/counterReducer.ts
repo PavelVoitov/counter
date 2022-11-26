@@ -39,15 +39,11 @@ export const counterReducer = (counter: InitialStatePropsType = initialState, ac
                 count: counter.count + 1
             }
         case 'RESET-COUNTER':
-            return counter.startValue === 0 ? {
+            return   {
                 ...counter,
-                errorMessage: '',
-                count: 0
-            } : {
-                ...counter,
-                errorMessage: '',
                 count: counter.startValue
             }
+
         case "SET-UP-COUNTER":
             return {
                 ...counter,
@@ -67,7 +63,7 @@ export const counterReducer = (counter: InitialStatePropsType = initialState, ac
                 ...counter,
                 maxValue: action.value
             }
-        case "SET-STARTVALUE":
+        case "SET-START-VALUE":
             return {
                 ...counter,
                 startValue: action.value
@@ -98,7 +94,7 @@ export const setMaxValueAC = (value: number) => {
 }
 
 export const setStartValueAC = (value: number) => {
-    return {type: "SET-STARTVALUE", value} as const
+    return {type: "SET-START-VALUE", value} as const
 }
 
 
